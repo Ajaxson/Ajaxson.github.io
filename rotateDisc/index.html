@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="MobileOptimized" content="320">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="browsermode" content="application">
+	<meta name="x5-page-mode" content="app">
+	<meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>南航温暖回家</title>
+	<script type="text/javascript">
+         function fontFun(){
+            var rootWi = document.documentElement.clientWidth;
+            rootWi = rootWi > 640? 640 : rootWi;
+            var rootSize = rootWi / 640 * 100;
+            document.documentElement.style.fontSize = rootSize + "px";
+         }
+         fontFun()
+         window.onresize = function(){
+            fontFun()
+         }
+	</script>
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+
+
+<div class="game wrap">
+	
+	<div class="gamebox">
+		<div class="panbox">
+			<div class="pan_big"></div>
+			<div class="pan_lit"></div>
+			<div class="pan_zhen"></div>
+		</div>
+		<div class="btnbox">
+			<button class="ico_topaly btn"><span>点击抽奖</span></button>
+		</div>
+	</div>
+
+</div>	
+	
+	<script src="js/rotateDisc.js"></script>  <!-- 转盘封装插件 -->
+	<script type="text/javascript">
+
+		// 模拟中奖
+		document.querySelector(".ico_topaly").onclick = function(){
+			//假设奖状奖品是2 
+			var gameResult = 2;  
+			// 开始转动
+			var myCarouse = new Carousel(".pan_lit",{
+								rotTo : gameResult,	 
+								maxLen : 9,		
+								speedTime: 10,	
+								rotSum: 30,
+								callFunc: function(){	//回调
+									// 展示结果页
+									setTimeout(function(){
+										alert("你获取到了奖品2,2222")
+									},800)
+									
+								}
+			});	
+
+			// 这是外盘，纯属装逼，别管
+			var myCarouse_my = new Carousel(".pan_big",{
+								rotTo : 5,
+								maxLen : 9,		
+								speedTime: 9.8,	
+								rotSum : 30,
+			});
+		}
+	</script>
+
+
+</body>
+</html>
+
+
